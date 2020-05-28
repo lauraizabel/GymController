@@ -1,9 +1,13 @@
 const express = require("express");
 const routes = express.Router();
 const instructors = require("./instructors");
+//Home Page
+routes.get("/", (res, req) => {
+  return res.redirect(301, "/instructors");
+});
 
-//Listando os instrutores (provavel de mudança, ainda nao sei)
-routes.get("/", (req, res) => {
+//Instructors
+routes.get("/instructors", (req, res) => {
   return res.render("instructors/index");
 });
 
@@ -24,5 +28,7 @@ routes.get("/members", () => {
 
 //edição de dados
 routes.get("/instructors/:id/edit", instructors.edit);
+
+routes.put("/instructors", instructors.put);
 
 module.exports = routes;
