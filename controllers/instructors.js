@@ -10,6 +10,7 @@ exports.index = (req, res) => {
 exports.create = (req, res) => {
   return res.render("instructors/create");
 };
+
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
   for (key of keys) {
@@ -71,7 +72,7 @@ exports.edit = (req, res) => {
 
   const instructor = {
     ...foundInstructor,
-    birth: date(foundInstructor.birth),
+    birth: date(foundInstructor.birth).iso,
   };
 
   return res.render("instructors/edit", { instructor });
@@ -113,12 +114,8 @@ exports.delete = (req, res) => {
 
   data.instructors = filteredInstructors;
 
-  fs.writeFile(
-    "data.json",
-    JSON.stringify(data, null, (err) => {
-      if (err) return res.send("Write File ERROR");
-
-      return res.redirect("/instructors");
-    })
-  );
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    if (err) return res.send("Write error!");
+    return res.redirect("/instructors");
+  });
 };
