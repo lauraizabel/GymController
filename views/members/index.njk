@@ -7,8 +7,10 @@
 
       <thead>
         <tr>
-          <th>Instructor</th>
-          <th>Atendimento</th>
+          <th>Membro</th>
+          <th>Email</th>
+          <th>Peso</th>
+          <th>Altura</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -21,7 +23,15 @@
               {{member.name}}
             </td>
             <td>
-              {{member.services}}
+              {{member.email}}
+            </td>
+            <td>
+              {{member.weight}}
+              kg
+            </td>
+            <td>
+              {{member.height}}
+              cm
             </td>
             <td>
               <a href="/members/{{member.id}}">Ver</a>
