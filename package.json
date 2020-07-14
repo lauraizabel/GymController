@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon index.js",
-    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public,views'",
+    "nodemon": "nodemon src/index.js",
+    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public,src/app/views'",
     "start": "npm-run-all -p nodemon browsersync"
   },
   "dependencies": {
     "express": "^4.17.1",
     "intl": "^1.2.5",
     "method-override": "^3.0.0",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "pg": "^8.2.1"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
