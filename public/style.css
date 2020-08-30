@@ -298,7 +298,7 @@ td:last-child {
 
 .table-container .pagination a,
 .pagination span {
-  color: var(--primary-color);
+  color: white;
   text-decoration: none;
   margin-right: 16px;
 }
